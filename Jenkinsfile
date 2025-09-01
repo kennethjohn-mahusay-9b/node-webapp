@@ -9,13 +9,8 @@ pipeline {
             }
         }
        stage('Build') {
-            agent {
-                docker {
-                    image 'webapp:latets'
-                }
-            }
             steps {
-                sh 'echo Heyyo:)'
+                sh 'docker run webapp:latest'
             }
         }
     }
