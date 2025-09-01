@@ -11,11 +11,11 @@ pipeline {
        stage('Build') {
             agent {
                 docker {
-                    image 'gradle:8.14.0-jdk21-alpine'
+                    image 'webapp:latets'
                 }
             }
             steps {
-                sh 'gradle -g gradle-user-home --version'
+                sh 'echo Heyyo:)'
             }
         }
     }
