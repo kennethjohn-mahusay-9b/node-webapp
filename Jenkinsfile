@@ -8,13 +8,15 @@ pipeline {
                 sh 'docker build -t webapp:latest .'
             }
         }
-        agent {
+       stage('Build') {
+            agent {
                 docker {
-                    image 'webapp:latest'
+                    image 'gradle:8.14.0-jdk21-alpine'
                 }
             }
             steps {
-                sh 'echo Heyyo :)'
+                sh 'gradle -g gradle-user-home --version'
             }
+        }
     }
 }
