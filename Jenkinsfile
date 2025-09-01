@@ -8,10 +8,13 @@ pipeline {
                 sh 'docker build -t webapp:latest .'
             }
         }
-        stage('Running Image'){
-           steps {
-              sh 'docker run webapp:latest'
-           }
-        }
+        agent {
+                docker {
+                    image 'webapp:latest'
+                }
+            }
+            steps {
+                sh 'echo Heyyo :)'
+            }
     }
 }
