@@ -8,10 +8,5 @@ pipeline {
                 sh 'docker build -t webapp:latest .'
             }
         }
-       stage('Build') {
-            steps {
-                sh 'docker run webapp:latest'
-            }
-        }
     }
 }
